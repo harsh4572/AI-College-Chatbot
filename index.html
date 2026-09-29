@@ -1,39 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College AI Chatbot</title>
+
+    <title>Flesha AI | Smart College Assistant</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="chat-container">
+    <!-- Animated Background -->
+    <div class="background">
 
-        <h1>🎓 College AI Chatbot</h1>
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="glow glow-three"></div>
 
-        <div id="chat-box">
-            <div class="bot-message">
-                Hello! 👋 How can I help you?
-            </div>
-        </div>
-
-        <div class="input-area">
-            <input 
-                type="text" 
-                id="user-input" 
-                placeholder="Ask something..."
-            >
-
-            <button onclick="sendMessage()">
-                Send
-            </button>
-        </div>
+        <div class="grid"></div>
 
     </div>
+
+
+    <!-- Main App -->
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="brand">
+
+                <div class="logo">
+                    <span>F</span>
+                </div>
+
+                <div>
+                    <h1>Flesha AI</h1>
+
+                    <p>
+                        <span class="status-dot"></span>
+                        Smart College Assistant
+                    </p>
+                </div>
+
+            </div>
+
+
+            <button
+                class="clear-icon"
+                onclick="clearChat()"
+                title="Clear chat">
+
+                ↻
+
+            </button>
+
+        </header>
+
+
+        <!-- Welcome Area -->
+        <section class="welcome">
+
+            <div class="ai-orb">
+
+                <div class="orb-core">
+                    F
+                </div>
+
+                <div class="orb-ring ring-one"></div>
+                <div class="orb-ring ring-two"></div>
+
+            </div>
+
+
+            <h2>
+                Hey, I'm <span>Flesha</span> 👋
+            </h2>
+
+            <p>
+                Your smart college companion.
+                Ask me anything about college life.
+            </p>
+
+        </section>
+
+
+        <!-- Suggestions -->
+        <div class="suggestions">
+
+            <button onclick="quickQuestion('Tell me about admission')">
+                🎓 Admission
+            </button>
+
+            <button onclick="quickQuestion('What courses are available?')">
+                📚 Courses
+            </button>
+
+            <button onclick="quickQuestion('Tell me about fees')">
+                💰 Fees
+            </button>
+
+            <button onclick="quickQuestion('What about placements?')">
+                🚀 Placements
+            </button>
+
+        </div>
+
+
+        <!-- Chat Area -->
+        <main id="chat-box">
+
+            <div class="message bot">
+
+                <div class="message-icon">
+                    F
+                </div>
+
+                <div class="message-content">
+
+                    <strong>Flesha</strong>
+
+                    <p>
+                        Welcome! I'm ready to help you.
+                        What would you like to know?
+                    </p>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <!-- Input Section -->
+        <div class="input-wrapper">
+
+            <div class="input-box">
+
+                <input
+                    type="text"
+                    id="user-input"
+                    placeholder="Ask Flesha anything..."
+                    autocomplete="off"
+                >
+
+                <button
+                    onclick="sendMessage()"
+                    class="send-button">
+
+                    <span>➤</span>
+
+                </button>
+
+            </div>
+
+            <p class="input-hint">
+                Flesha AI can help with admissions, courses,
+                fees, exams and more.
+            </p>
+
+        </div>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <span>✦</span>
+            Flesha AI
+            <span>•</span>
+            Built for students
+
+        </footer>
+
+    </div>
+
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

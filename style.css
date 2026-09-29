@@ -1,60 +1,1209 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f2f5ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+/* =========================================
+   RESET
+========================================= */
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.chat-container {
-    width: 400px;
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    min-height: 100vh;
+
+    color: #f5f7ff;
+
+    background: #070914;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
 }
 
-h1 {
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(91, 79, 255, 0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(0, 220, 255, 0.12),
+            transparent 30%
+        ),
+        #070914;
+}
+
+
+/* =========================================
+   GLOW EFFECTS
+========================================= */
+
+.glow {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.35;
+
+    animation: floatingGlow 10s infinite ease-in-out;
+}
+
+
+.glow-one {
+
+    width: 280px;
+    height: 280px;
+
+    background: #6c63ff;
+
+    top: -100px;
+    left: -80px;
+}
+
+
+.glow-two {
+
+    width: 330px;
+    height: 330px;
+
+    background: #00c6ff;
+
+    right: -150px;
+    bottom: -120px;
+
+    animation-delay: 3s;
+}
+
+
+.glow-three {
+
+    width: 180px;
+    height: 180px;
+
+    background: #9b5cff;
+
+    right: 20%;
+    top: 10%;
+
+    animation-delay: 6s;
+}
+
+
+@keyframes floatingGlow {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(30px, -25px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            black 20%,
+            transparent 80%
+        );
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
+.app {
+
+    width: 900px;
+
+    height: 92vh;
+
+    max-width: 94%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        rgba(12, 15, 30, 0.82);
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.09);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+
+        0 30px 100px
+        rgba(0,0,0,0.45),
+
+        inset 0 1px 0
+        rgba(255,255,255,0.06);
+
+    overflow: hidden;
+
+    animation: appAppear 0.8s ease;
+}
+
+
+@keyframes appAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+
+    min-height: 78px;
+
+    padding: 16px 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+
+        1px solid
+        rgba(255,255,255,0.07);
+
+    background:
+        rgba(255,255,255,0.025);
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.logo {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #6c63ff,
+            #00c6ff
+        );
+
+    box-shadow:
+
+        0 0 25px
+        rgba(93, 110, 255, 0.35);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.logo::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 60px;
+
+    height: 10px;
+
+    background:
+        rgba(255,255,255,0.35);
+
+    transform: rotate(-45deg);
+
+    animation: logoShine 3s infinite;
+}
+
+
+@keyframes logoShine {
+
+    from {
+        left: -80px;
+    }
+
+    to {
+        left: 70px;
+    }
+}
+
+
+.logo span {
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    z-index: 1;
+}
+
+
+.brand h1 {
+
+    font-size: 19px;
+
+    letter-spacing: 0.3px;
+}
+
+
+.brand p {
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    color: #9da5c0;
+}
+
+
+.status-dot {
+
+    display: inline-block;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #37e58c;
+
+    margin-right: 5px;
+
+    box-shadow:
+        0 0 10px #37e58c;
+
+    animation:
+        statusPulse 1.7s infinite;
+}
+
+
+@keyframes statusPulse {
+
+    50% {
+
+        opacity: 0.4;
+
+        transform: scale(0.8);
+    }
+}
+
+
+/* =========================================
+   CLEAR BUTTON
+========================================= */
+
+.clear-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 12px;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.04);
+
+    color: #aeb6d0;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.clear-icon:hover {
+
+    color: white;
+
+    background:
+        rgba(108,99,255,0.18);
+
+    transform: rotate(-30deg);
+}
+
+
+/* =========================================
+   WELCOME
+========================================= */
+
+.welcome {
+
     text-align: center;
+
+    padding: 32px 20px 18px;
 }
+
+
+/* =========================================
+   AI ORB
+========================================= */
+
+.ai-orb {
+
+    width: 105px;
+
+    height: 105px;
+
+    margin: 0 auto 18px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.orb-core {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    background:
+
+        radial-gradient(
+            circle at 30% 30%,
+            #a6a1ff,
+            #5147d9 55%,
+            #17152f
+        );
+
+    box-shadow:
+
+        0 0 30px
+        rgba(108,99,255,0.55),
+
+        inset 0 0 20px
+        rgba(255,255,255,0.15);
+
+    z-index: 2;
+
+    animation: orbPulse 3s infinite ease-in-out;
+}
+
+
+@keyframes orbPulse {
+
+    0%,100% {
+
+        transform: scale(1);
+
+        box-shadow:
+            0 0 30px
+            rgba(108,99,255,0.5);
+    }
+
+    50% {
+
+        transform: scale(1.06);
+
+        box-shadow:
+            0 0 50px
+            rgba(108,99,255,0.75);
+    }
+}
+
+
+.orb-ring {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(111, 102, 255, 0.45);
+}
+
+
+.ring-one {
+
+    width: 88px;
+
+    height: 88px;
+
+    animation:
+        rotateRing 6s linear infinite;
+}
+
+
+.ring-two {
+
+    width: 105px;
+
+    height: 105px;
+
+    border-style: dashed;
+
+    border-color:
+        rgba(0, 198, 255, 0.3);
+
+    animation:
+        rotateRingReverse 9s linear infinite;
+}
+
+
+@keyframes rotateRing {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes rotateRingReverse {
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+
+/* =========================================
+   WELCOME TEXT
+========================================= */
+
+.welcome h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 8px;
+}
+
+
+.welcome h2 span {
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #8f88ff,
+            #43d9ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.welcome p {
+
+    color: #9199b5;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   SUGGESTIONS
+========================================= */
+
+.suggestions {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    padding: 0 20px 18px;
+}
+
+
+.suggestions button {
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+
+        rgba(255,255,255,0.035);
+
+    color: #c8cee0;
+
+    padding: 9px 13px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+
+.suggestions button:hover {
+
+    border-color:
+        rgba(108,99,255,0.5);
+
+    background:
+        rgba(108,99,255,0.12);
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   CHAT
+========================================= */
 
 #chat-box {
-    height: 350px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 15px;
-}
 
-.bot-message,
-.user-message {
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 8px;
-}
-
-.bot-message {
-    background: #e8edff;
-}
-
-.user-message {
-    background: #d4ffd9;
-    text-align: right;
-}
-
-.input-area {
-    display: flex;
-    gap: 8px;
-}
-
-input {
     flex: 1;
-    padding: 10px;
+
+    overflow-y: auto;
+
+    padding: 10px 28px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #373b59 transparent;
 }
 
-button {
-    padding: 10px 15px;
+
+#chat-box::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+#chat-box::-webkit-scrollbar-thumb {
+
+    background: #373b59;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+
+    max-width: 75%;
+
+    display: flex;
+
+    gap: 10px;
+
+    animation:
+        messageAppear 0.35s ease;
+}
+
+
+@keyframes messageAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   BOT MESSAGE
+========================================= */
+
+.message.bot {
+
+    align-self: flex-start;
+}
+
+
+.message-icon {
+
+    flex-shrink: 0;
+
+    width: 31px;
+
+    height: 31px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #6259ef,
+            #159fd0
+        );
+
+    box-shadow:
+        0 5px 18px
+        rgba(79,70,229,0.25);
+}
+
+
+.message-content {
+
+    padding: 11px 14px;
+
+    border-radius: 14px;
+
+    border-top-left-radius: 4px;
+
+    background:
+
+        rgba(255,255,255,0.055);
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.07);
+}
+
+
+.message-content strong {
+
+    display: block;
+
+    font-size: 11px;
+
+    color: #9d96ff;
+
+    margin-bottom: 5px;
+}
+
+
+.message-content p {
+
+    font-size: 13px;
+
+    color: #d8dced;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   USER MESSAGE
+========================================= */
+
+.message.user {
+
+    align-self: flex-end;
+
+    justify-content: flex-end;
+}
+
+
+.message.user .message-content {
+
+    border-radius: 14px;
+
+    border-top-right-radius: 4px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(91,82,232,0.85),
+            rgba(41,151,190,0.75)
+        );
+
+    border: none;
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(69,65,190,0.18);
+}
+
+
+.message.user .message-content p {
+
+    color: white;
+}
+
+
+/* =========================================
+   TYPING
+========================================= */
+
+.typing {
+
+    align-self: flex-start;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #929ab5;
+
+    font-size: 12px;
+
+    padding-left: 4px;
+}
+
+
+.typing-dots {
+
+    display: flex;
+
+    gap: 4px;
+}
+
+
+.typing-dots span {
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #817aff;
+
+    animation:
+        typingDot 1.2s infinite;
+}
+
+
+.typing-dots span:nth-child(2) {
+
+    animation-delay: 0.15s;
+}
+
+
+.typing-dots span:nth-child(3) {
+
+    animation-delay: 0.3s;
+}
+
+
+@keyframes typingDot {
+
+    0%,60%,100% {
+
+        transform: translateY(0);
+
+        opacity: 0.35;
+    }
+
+    30% {
+
+        transform: translateY(-5px);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-wrapper {
+
+    padding: 12px 28px 8px;
+}
+
+
+.input-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 7px 8px 7px 16px;
+
+    border-radius: 16px;
+
+    background:
+
+        rgba(255,255,255,0.055);
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.1);
+
+    transition: 0.3s;
+}
+
+
+.input-box:focus-within {
+
+    border-color:
+        rgba(110,101,255,0.7);
+
+    box-shadow:
+
+        0 0 0 3px
+        rgba(108,99,255,0.08),
+
+        0 0 25px
+        rgba(108,99,255,0.1);
+}
+
+
+#user-input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+#user-input::placeholder {
+
+    color: #737b97;
+}
+
+
+/* =========================================
+   SEND BUTTON
+========================================= */
+
+.send-button {
+
+    width: 39px;
+
+    height: 39px;
+
+    border: none;
+
+    border-radius: 12px;
+
     cursor: pointer;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #655cf2,
+            #13a8d6
+        );
+
+    box-shadow:
+
+        0 5px 20px
+        rgba(83,91,224,0.3);
+
+    transition: 0.3s;
+}
+
+
+.send-button span {
+
+    display: block;
+
+    transition: 0.3s;
+}
+
+
+.send-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(83,91,224,0.45);
+}
+
+
+.send-button:hover span {
+
+    transform:
+        translateX(2px)
+        rotate(-8deg);
+}
+
+
+/* =========================================
+   INPUT HINT
+========================================= */
+
+.input-hint {
+
+    text-align: center;
+
+    color: #606882;
+
+    font-size: 9px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 10px;
+
+    color: #5f6781;
+
+    font-size: 9px;
+
+    border-top:
+
+        1px solid
+        rgba(255,255,255,0.04);
+}
+
+
+footer span {
+
+    color: #7770ef;
+
+    margin: 0 4px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+
+        align-items: stretch;
+    }
+
+
+    .app {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        height: 100vh;
+
+        border-radius: 0;
+
+        border: none;
+    }
+
+
+    .welcome {
+
+        padding-top: 24px;
+    }
+
+
+    .welcome h2 {
+
+        font-size: 23px;
+    }
+
+
+    #chat-box {
+
+        padding-left: 16px;
+
+        padding-right: 16px;
+    }
+
+
+    .input-wrapper {
+
+        padding-left: 14px;
+
+        padding-right: 14px;
+    }
+
+
+    .message {
+
+        max-width: 88%;
+    }
 }
